@@ -1,0 +1,26 @@
+/* src/index.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Apply the gradient background from your example */
+  background: linear-gradient(135deg, #ec21ac 0%, #ffe358 100%);
+  color: #333333; /* Default text color for light theme */
+  font-family: 'Poppins', Roboto, sans-serif;
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

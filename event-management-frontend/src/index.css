@@ -1,0 +1,50 @@
+/* src/index.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure body takes full height */
+  background-color: #121212; /* Match theme.palette.background.default */
+  color: #ffffff; /* Default text color */
+  font-family: 'Poppins', Roboto, sans-serif; /* Apply the font globally */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Basic link styling (override default browser link color) */
+a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent by default */
+}/* src/index.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure body takes full height */
+  background-color: #121212; /* Match theme.palette.background.default from MUI theme */
+  color: #ffffff; /* Default text color, inherited from theme */
+  font-family: 'Poppins', sans-serif; /* Apply the font globally, fallback to Poppins */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Basic link styling (override default browser link color) */
+/* MUI Link component or sx prop on Typography/Button is preferred */
+a {
+  text-decoration: none;
+  /* Color will be handled by MUI components' default link styles or by theme.palette */
+}
