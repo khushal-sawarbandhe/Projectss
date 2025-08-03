@@ -48,7 +48,7 @@ function HomePage({ globalSearchTerm }) {
         if (globalSearchTerm) { 
           queryParams.append('search', globalSearchTerm);
         }
-        const url = `http://localhost:5000/api/events?${queryParams.toString()}`;
+        const url = `${import.meta.env.VITE_BACKEND_URL}/api/events?${queryParams.toString()}`;
         console.log("Fetching URL (HomePage):", url);
 
         const response = await fetch(url);
@@ -152,7 +152,8 @@ function HomePage({ globalSearchTerm }) {
                 <CardMedia
                   component="img"
                   height="180"
-                  image={event.imageUrl ? `http://localhost:5000${event.imageUrl}` : defaultEventImage}
+                 image={event.imageUrl ? `${import.meta.env.VITE_BACKEND_URL}${event.imageUrl}` : defaultEventImage}
+
                   alt={event.title}
                   sx={{
                     width: '100%',
