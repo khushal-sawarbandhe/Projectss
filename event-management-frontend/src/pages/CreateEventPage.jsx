@@ -59,14 +59,13 @@ function CreateEventPage() {
         dataToSend.append('eventImage', eventImage); // 'eventImage' matches the name in multer.single()
       }
 
-      const response = await fetch('http://localhost:5000/api/events', { // <-- REMOVED '/create' // Corrected backend route to /api/events/create
-        method: 'POST',
-        headers: {
-          // 'Content-Type': 'multipart/form-data', // DO NOT set Content-Type for FormData, browser sets it
-          'Authorization': `Bearer ${userToken}`,
-        },
-        body: dataToSend, // Send FormData
-      });
+     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events`, {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${userToken}`,
+  },
+  body: dataToSend,
+});
 
       const data = await response.json();
 
