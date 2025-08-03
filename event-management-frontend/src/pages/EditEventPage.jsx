@@ -45,7 +45,8 @@ function EditEventPage() {
           setLoading(true);
           setError(null);
           try {
-              const response = await fetch(`http://localhost:5000/api/events/${id}`);
+             const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events/${id}`);
+
               if (!response.ok) {
                   const errorData = await response.json();
                   throw new Error(errorData.message || 'Failed to fetch event details');
@@ -68,7 +69,8 @@ function EditEventPage() {
                   location: data.location,
                   availableSpots: data.availableSpots,
               });
-              setExistingImageUrl(data.imageUrl ? `http://localhost:5000${data.imageUrl}` : ''); // Set existing image
+             setExistingImageUrl(data.imageUrl ? `${import.meta.env.VITE_BACKEND_URL}${data.imageUrl}` : '');
+ // Set existing image
               setImagePreview(null); // Clear any old preview
 
           } catch (err) {
@@ -135,14 +137,14 @@ function EditEventPage() {
           }
           // If existingImageUrl is present and no new file, do nothing to dataToSend for image
 
-          const response = await fetch(`http://localhost:5000/api/events/${id}`, {
-              method: 'PUT',
-              headers: {
-                  'Authorization': `Bearer ${userToken}`,
-                  // DO NOT set Content-Type for FormData, browser sets it as multipart/form-data
-              },
-              body: dataToSend,
-          });
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events/${id}`, {
+  method: 'PUT',
+  headers: {
+    'Authorization': `Bearer ${userToken}`,
+  },
+  body: dataToSend,
+});
+
 
           const responseData = await response.json();
 
