@@ -52,7 +52,8 @@ function EventDetailsPage() {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/events/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events/${id}`);
+
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
@@ -86,7 +87,8 @@ function EventDetailsPage() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}/rsvp`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events/${id}/rsvp`, {
+
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +125,8 @@ function EventDetailsPage() {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/events/${id}`, {
+
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${userToken}`,
@@ -170,7 +173,7 @@ function EventDetailsPage() {
           {/* Display Event Image if available */}
           {event.imageUrl && (
             <Box sx={{ mb: 3, textAlign: 'center' }}>
-              <img src={`http://localhost:5000${event.imageUrl}`} alt={event.title} style={{ maxWidth: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', borderRadius: '8px' }} />
+              <img src={`${import.meta.env.VITE_BACKEND_URL}${event.imageUrl}`} alt={event.title} style={{ maxWidth: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', borderRadius: '8px' }} />
             </Box>
           )}
 
