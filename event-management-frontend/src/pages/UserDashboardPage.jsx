@@ -30,7 +30,8 @@ function UserDashboardPage() {
       try {
         setLoading(true);
 
-        const createdResponse = await fetch(`http://localhost:5000/api/users/${userId}/events/created`, {
+     const createdResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${userId}/events/created`, {
+
           headers: {
             'Authorization': `Bearer ${userToken}`,
           },
@@ -42,7 +43,8 @@ function UserDashboardPage() {
         const createdData = await createdResponse.json();
         setCreatedEvents(createdData);
 
-        const rsvpdResponse = await fetch(`http://localhost:5000/api/users/${userId}/events/rsvpd`, {
+       const rsvpdResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${userId}/events/rsvpd`, {
+
           headers: {
             'Authorization': `Bearer ${userToken}`,
           },
